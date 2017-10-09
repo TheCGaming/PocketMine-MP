@@ -65,16 +65,10 @@ class Skull extends Spawnable{
 	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
 		$nbt->SkullType = new ByteTag("SkullType", $item !== null ? $item->getDamage() : self::TYPE_SKELETON);
 
-		if($face === Vector3::SIDE_UP){
-			if($player !== null){
-				$rot = floor(($player->yaw * 16 / 360) + 0.5) & 0x0F;
-			}else{
-				$rot = 0;
-			}
-		}else{
-			$rot = $face;
+		$rot = 0;
+		if($face === Vector3::SIDE_UP and $player !== null){
+			$rot = floor(($player->yaw * 16 / 360) + 0.5) & 0x0F;
 		}
-
 		$nbt->Rot = new ByteTag("Rot", $rot);
 	}
 }
