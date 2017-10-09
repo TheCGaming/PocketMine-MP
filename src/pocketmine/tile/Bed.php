@@ -24,9 +24,12 @@ declare(strict_types=1);
 namespace pocketmine\tile;
 
 
+use pocketmine\item\Item;
 use pocketmine\level\Level;
+use pocketmine\math\Vector3;
 use pocketmine\nbt\tag\ByteTag;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\Player;
 
 class Bed extends Spawnable{
 
@@ -48,5 +51,9 @@ class Bed extends Spawnable{
 
 	public function addAdditionalSpawnData(CompoundTag $nbt){
 		$nbt->color = $this->namedtag->color;
+	}
+
+	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+		$nbt->color = new ByteTag("color", $item !== null ? $item->getDamage() : 14); //default red
 	}
 }
