@@ -94,7 +94,7 @@ class ItemFrame extends Spawnable{
 		}
 	}
 
-	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+	protected static function createAdditionalNBT(CompoundTag $nbt, Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : void{
 		$nbt->ItemDropChance = new FloatTag("ItemDropChance", 1.0);
 		$nbt->ItemRotation = new ByteTag("ItemRotation", 0);
 	}

@@ -90,7 +90,7 @@ class FlowerPot extends Spawnable{
 		$nbt->mData = $this->namedtag->mData;
 	}
 
-	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+	protected static function createAdditionalNBT(CompoundTag $nbt, Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : void{
 		$nbt->item = new ShortTag("item", 0);
 		$nbt->mData = new IntTag("mData", 0);
 	}

@@ -91,7 +91,7 @@ class Chest extends Transparent{
 		}
 
 		$this->getLevel()->setBlock($blockReplace, $this, true, true);
-		$tile = Tile::createTile(Tile::CHEST, $this->getLevel(), TileChest::getDefaultNBT($this, $face, $item, $player));
+		$tile = Tile::createTile(Tile::CHEST, $this->getLevel(), TileChest::createNBT($this, $face, $item, $player));
 
 		if($chest instanceof TileChest and $tile instanceof TileChest){
 			$chest->pairWith($tile);
@@ -119,7 +119,7 @@ class Chest extends Transparent{
 			if($t instanceof TileChest){
 				$chest = $t;
 			}else{
-				$chest = Tile::createTile(Tile::CHEST, $this->getLevel(), TileChest::getDefaultNBT($this));
+				$chest = Tile::createTile(Tile::CHEST, $this->getLevel(), TileChest::createNBT($this));
 			}
 
 			if(

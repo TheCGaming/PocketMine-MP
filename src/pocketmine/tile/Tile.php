@@ -174,7 +174,17 @@ abstract class Tile extends Position{
 		}
 	}
 
-	public static function getDefaultNBT(Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : CompoundTag{
+	/**
+	 * Creates and returns a CompoundTag containing the necessary information to spawn a tile of this type.
+	 *
+	 * @param Vector3     $pos
+	 * @param int|null    $face
+	 * @param Item|null   $item
+	 * @param Player|null $player
+	 *
+	 * @return CompoundTag
+	 */
+	public static function createNBT(Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : CompoundTag{
 		$nbt = new CompoundTag("", [
 			new StringTag("id", static::getSaveId()),
 			new IntTag("x", (int) $pos->x),
@@ -182,7 +192,7 @@ abstract class Tile extends Position{
 			new IntTag("z", (int) $pos->z)
 		]);
 
-		static::addAdditionalDefaultNBT($nbt, $pos, $face, $item, $player);
+		static::createAdditionalNBT($nbt, $pos, $face, $item, $player);
 
 		if($item !== null){
 			if($item->hasCustomBlockData()){
@@ -198,7 +208,16 @@ abstract class Tile extends Position{
 		return $nbt;
 	}
 
-	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+	/**
+	 * Called by createNBT() to allow descendent classes to add their own base NBT using the parameters provided.
+	 *
+	 * @param CompoundTag $nbt
+	 * @param Vector3     $pos
+	 * @param int|null    $face
+	 * @param Item|null   $item
+	 * @param Player|null $player
+	 */
+	protected static function createAdditionalNBT(CompoundTag $nbt, Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : void{
 
 	}
 

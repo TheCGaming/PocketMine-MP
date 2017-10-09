@@ -167,7 +167,7 @@ class Sign extends Spawnable{
 		}
 	}
 
-	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+	protected static function createAdditionalNBT(CompoundTag $nbt, Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : void{
 		for($i = 1; $i <= 4; ++$i){
 			$key = "Text$i";
 			$nbt->$key = new StringTag($key, "");

@@ -65,7 +65,7 @@ class BurningFurnace extends Solid{
 		$this->meta = $faces[$player instanceof Player ? $player->getDirection() : 0];
 		$this->getLevel()->setBlock($blockReplace, $this, true, true);
 
-		Tile::createTile(Tile::FURNACE, $this->getLevel(), TileFurnace::getDefaultNBT($this, $face, $item, $player));
+		Tile::createTile(Tile::FURNACE, $this->getLevel(), TileFurnace::createNBT($this, $face, $item, $player));
 
 		return true;
 	}
@@ -74,7 +74,7 @@ class BurningFurnace extends Solid{
 		if($player instanceof Player){
 			$furnace = $this->getLevel()->getTile($this);
 			if(!($furnace instanceof TileFurnace)){
-				$furnace = Tile::createTile(Tile::FURNACE, $this->getLevel(), TileFurnace::getDefaultNBT($this));
+				$furnace = Tile::createTile(Tile::FURNACE, $this->getLevel(), TileFurnace::createNBT($this));
 			}
 
 			if(isset($furnace->namedtag->Lock) and $furnace->namedtag->Lock instanceof StringTag){

@@ -46,7 +46,7 @@ class ItemFrame extends Flowable{
 	public function onActivate(Item $item, Player $player = null) : bool{
 		$tile = $this->level->getTile($this);
 		if(!($tile instanceof TileItemFrame)){
-			$tile = Tile::createTile(Tile::ITEM_FRAME, $this->getLevel(), TileItemFrame::getDefaultNBT($this));
+			$tile = Tile::createTile(Tile::ITEM_FRAME, $this->getLevel(), TileItemFrame::createNBT($this));
 		}
 
 		if($tile->hasItem()){
@@ -100,7 +100,7 @@ class ItemFrame extends Flowable{
 		$this->meta = $faces[$face];
 		$this->level->setBlock($blockReplace, $this, true, true);
 
-		Tile::createTile(Tile::ITEM_FRAME, $this->getLevel(), TileItemFrame::getDefaultNBT($this, $face, $item, $player));
+		Tile::createTile(Tile::ITEM_FRAME, $this->getLevel(), TileItemFrame::createNBT($this, $face, $item, $player));
 
 		return true;
 

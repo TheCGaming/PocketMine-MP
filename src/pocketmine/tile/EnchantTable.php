@@ -55,7 +55,7 @@ class EnchantTable extends Spawnable implements Nameable{
 		}
 	}
 
-	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+	protected static function createAdditionalNBT(CompoundTag $nbt, Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : void{
 		if($item !== null and $item->hasCustomName()){
 			$nbt->CustomName = new StringTag("CustomName", $item->getCustomName());
 		}

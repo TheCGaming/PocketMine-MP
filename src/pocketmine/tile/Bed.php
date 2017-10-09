@@ -53,7 +53,7 @@ class Bed extends Spawnable{
 		$nbt->color = $this->namedtag->color;
 	}
 
-	protected static function addAdditionalDefaultNBT(CompoundTag $nbt, Vector3 $pos, int $face = Vector3::SIDE_DOWN, Item $item = null, Player $player = null) : void{
+	protected static function createAdditionalNBT(CompoundTag $nbt, Vector3 $pos, ?int $face = null, ?Item $item = null, ?Player $player = null) : void{
 		$nbt->color = new ByteTag("color", $item !== null ? $item->getDamage() : 14); //default red
 	}
 }

@@ -180,8 +180,8 @@ class Bed extends Transparent{
 				$this->getLevel()->setBlock($blockReplace, BlockFactory::get($this->id, $meta), true, true);
 				$this->getLevel()->setBlock($next, BlockFactory::get($this->id, $meta | self::BITFLAG_HEAD), true, true);
 
-				Tile::createTile(Tile::BED, $this->getLevel(), TileBed::getDefaultNBT($this, $face, $item, $player));
-				Tile::createTile(Tile::BED, $this->getLevel(), TileBed::getDefaultNBT($next, $face, $item, $player));
+				Tile::createTile(Tile::BED, $this->getLevel(), TileBed::createNBT($this, $face, $item, $player));
+				Tile::createTile(Tile::BED, $this->getLevel(), TileBed::createNBT($next, $face, $item, $player));
 
 				return true;
 			}

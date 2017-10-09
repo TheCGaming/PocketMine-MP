@@ -64,7 +64,7 @@ class FlowerPot extends Flowable{
 		}
 
 		$this->getLevel()->setBlock($blockReplace, $this, true, true);
-		Tile::createTile(Tile::FLOWER_POT, $this->getLevel(), TileFlowerPot::getDefaultNBT($this, $face, $item, $player));
+		Tile::createTile(Tile::FLOWER_POT, $this->getLevel(), TileFlowerPot::createNBT($this, $face, $item, $player));
 		return true;
 	}
 
