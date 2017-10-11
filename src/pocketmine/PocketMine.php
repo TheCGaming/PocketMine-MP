@@ -79,10 +79,10 @@ namespace pocketmine {
 	use pocketmine\wizard\SetupWizard;
 	use raklib\RakLib;
 
-	const NAME = "PocketMine-MP";
+	const NAME = "PMMP";
 	const VERSION = "1.7dev";
 	const API_VERSION = "3.0.0-ALPHA9";
-	const CODENAME = "[REDACTED]";
+	const CODENAME = "[DeltaMine";
 
 	/*
 	 * Startup code. Do not look at it, it may harm you.
