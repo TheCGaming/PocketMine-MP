@@ -478,7 +478,7 @@ class Server{
 			case Player::SPECTATOR:
 				return "Spectator";
 			default:
-				throw new \InvalidArgumentException("Invalid gamemode $mode");
+				throw new \InvalidArgumentException("No Gamemode Found With this name lol!");
 		}
 	}
 
@@ -508,7 +508,7 @@ class Server{
 
 			case (string) Player::SPECTATOR:
 			case "spectator":
-			case "view":
+			case "spec":
 			case "v":
 				return Player::SPECTATOR;
 		}
